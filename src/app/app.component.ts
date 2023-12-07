@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ParticlesConfig } from '../assets/particles-config';
-declare let particlesJS: any;
+declare var particlesJS: any;
 
 
 @Component({
@@ -15,7 +15,10 @@ declare let particlesJS: any;
 export class AppComponent implements OnInit {
   title = 'TheJourneySourceCode';
 
+  constructor(){}
+
   ngOnInit() {
-    particlesJS('particles-js', ParticlesConfig, function() {});
+    //returns "particleJS is not defined", yet still functions properly
+    particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')});
   }
 }

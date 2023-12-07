@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../post.service';
 import { ActivatedRoute } from '@angular/router';
 import { post } from '../../Models/post';
+import { NgTiltModule } from '@geometricpanda/angular-tilt';
 
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [],
+  imports: [NgTiltModule],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })

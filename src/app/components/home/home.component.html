@@ -1,20 +1,19 @@
 <div class="container">
     <div class="row gx-5 gy-5 my-5 justify-content-center" > 
         <!--For Each Column-->
-        <ul class="col-6" *ngFor="let post of posts; index as i">
+        <ul class="col-md-6 col-sm-10" *ngFor="let post of posts; index as i" ngTilt [maxTilt]=5 [scale]=1 >
             <li>
+                <a [routerLink]="'post/' + post.id">
                 <!--Card-->
-                <div class="card bg-dark text-light p-2">
-                    <div class="card-body">
-                        <a [routerLink]="'post/' + post.id">
-                            <h3 class="card-title text-center dadFont">{{post.title}}</h3>
-                        </a>
+                <div class="card bg-dark text-light p-2"  ngTiltParallax [distance]=0 >
+                    <div class="card-body text-break overflow-hidden" style="height: 300px; max-height: 300px; text-overflow: ellipsis;  ">
+                            <h3 class="card-title text-center dadFont text-decoration-underline">{{post.title}}</h3>
                             <h6 class="card-subtitle text-secondary text-center dadFont">{{post.filter}}</h6>
-                            <hr>
-                            <p class="card-text text-center crimsonRoman">{{post.content}}</p>
+                            <hr> 
+                            <p class="card-text text-center crimsonRoman p-3">{{post.summary}}</p>
                     </div>
                 </div>
-
+            </a>
             </li>
         </ul>
 
