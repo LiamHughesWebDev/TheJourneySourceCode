@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(34,33,56,1) 36%, rgba(24,23,43,1) 51%, rgba(34,33,56,1) 65%, rgba(2,0,36,1) 100%);
+    background-image: url(./assets/images/HJ10975.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+        // background-image: linear-gradient(to right bottom, #6082b6, #58739d, #506484, #48556d, #3f4756);
+
 }

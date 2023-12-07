@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row gx-5 gy-5 my-5 justify-content-center" > 
+        <!--For Each Column-->
+        <ul class="col-6" *ngFor="let post of posts; index as i">
+            <li>
+                <!--Card-->
+                <div class="card bg-dark text-light p-2">
+                    <div class="card-body">
+                        <a [routerLink]="'post/' + post.id">
+                            <h3 class="card-title text-center dadFont">{{post.title}}</h3>
+                        </a>
+                            <h6 class="card-subtitle text-secondary text-center dadFont">{{post.filter}}</h6>
+                            <hr>
+                            <p class="card-text text-center crimsonRoman">{{post.content}}</p>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+</div>

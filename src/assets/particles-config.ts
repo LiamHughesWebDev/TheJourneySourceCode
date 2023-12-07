@@ -8,7 +8,7 @@ export const ParticlesConfig = {
       }
     },
     color: {
-      value: '#283593'
+      value: '#FFFFFF'
     },
     shape: {
       type: 'polygon',
@@ -25,7 +25,7 @@ export const ParticlesConfig = {
       random: true,
       anim: {
         enable: true,
-        speed: 0.8,
+        speed: 0.4,
         opacity_min: 0.25,
         sync: true
       }
@@ -35,21 +35,21 @@ export const ParticlesConfig = {
       random: true,
       anim: {
         enable: true,
-        speed: 10,
+        speed: 2,
         size_min: 1.25,
         sync: true
       }
     },
     line_linked: {
       enable: true,
-      distance: 150,
+      distance: 100,
       color: '#283593',
       opacity: 1,
       width: 1
     },
     move: {
       enable: true,
-      speed: 8,
+      speed: 1,
       direction: 'none',
       random: true,
       straight: false,

@@ -1,0 +1,35 @@
+@font-face {
+    font-family: DadHand;
+    src: url(../../../assets/fonts/dadha___.ttf);  
+}
+@font-face {
+    font-family: QuikHand;
+    src: url(../../../assets/fonts/Quikhand.ttf);  
+}
+@font-face {
+    font-family: CrimsonRoman;
+    src: url(../../../assets/fonts/Crimson/Crimson-Roman.ttf);  
+}
+ul{
+    li{
+        list-style-type: none;
+    }
+}
+hr{
+    width: 50%;
+    opacity: 10%;
+    margin: 20px auto;
+}
+.dadFont{
+    font-family: DadHand;
+}
+.quikHand{
+    font-family: QuikHand;
+    letter-spacing: 2px;
+    font-size:1.15em;
+}
+.crimsonRoman{
+    font-family: CrimsonRoman;
+    font-size:1.15em;
+}
+
