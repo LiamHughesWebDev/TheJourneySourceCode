@@ -1,6 +1,6 @@
 @font-face {
-    font-family: DadHand;
-    src: url(../../../assets/fonts/dadha___.ttf);  
+    font-family: Playfair;
+    src: url(../../../assets/fonts/Playfair/PlayfairDisplay-VariableFont_wght.ttf);  
 }
 @font-face {
     font-family: QuikHand;
@@ -24,8 +24,8 @@ hr{
     opacity: 10%;
     margin: 20px auto;
 }
-.dadFont{
-    font-family: DadHand;
+.Playfair{
+    font-family: Playfair;
 }
 .quikHand{
     font-family: QuikHand;

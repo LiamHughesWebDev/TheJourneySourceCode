@@ -1,13 +1,11 @@
 @font-face {
-    font-family: DadHand;
-    src: url(../assets/fonts/dadha___.ttf);
-    
+    font-family: Playfair;
+    src: url(../assets/fonts/Playfair/PlayfairDisplay-VariableFont_wght.ttf);  
 }
-
 #journey{
     margin: 3em auto;
     position: relative;
-    font-family: DadHand;
+    font-family: Playfair;
     background: rgb(42,52,60);
     background: radial-gradient(circle, rgba(42,52,60,0.6867121848739496) 0%, rgba(0,0,0,0) 100%);
     
@@ -18,6 +16,38 @@
 }
 #particles-js{
     height: 100%;
-  width: 100%;
-  position: fixed;
+    width: 100%;
+    position: fixed;
   } 
+#navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.5em;
+    position: relative;
+
+    list-style: none;
+    color: white;
+    font-family: Playfair;
+    font-size: 1.25em;
+    
+    li{
+        padding: .5em;
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+    
+}
+.hireMe{
+    background-color: #8BA5BA;
+    color: black;
+    font-weight: bold;
+    padding: .5em;
+    border-radius: 10px;
+}
