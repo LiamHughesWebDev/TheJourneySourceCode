@@ -1,13 +1,48 @@
 <div class="container">
-    <ul class="justify-content-center row p-0">
-        <div class="col-10 mb-5" ngTilt [maxTilt]=1 [scale]=1>
-            <div class="card bg-dark text-light p-2 mt-5 mb-5" ngTiltParallax [distance]=0 style="min-height: 500px;">
-            <div class="card-body p-2">
-                <h3  class="card-title text-center">{{post.title}}</h3>
-                <h6 class="card-subtitle text-secondary text-center mb-3">{{post.filter}}</h6>
-                <p class="card-text p-2 mb-5">{{post.content}}</p>
-            </div>
+    <!-- Main Post-->
+    <div class="justify-content-center row p-0">
+        <div class="col-10" ngTilt [maxTilt]=1 [scale]=1>
+            <div class="card bg-dark text-light p-2 mt-5" ngTiltParallax [distance]=0 style="min-height: 500px;">
+                <div class="card-body p-2">
+                    <h2 class="card-title text-center playfair border-bottom custom-border-color mx-5">{{post.title}}</h2>
+                    <h6 class="card-subtitle text-secondary text-center mb-3">{{post.filter}}</h6>
+                    <p class="card-text p-2 mb-5">{{post.content}}</p>
+                </div>
             </div>
         </div>
-    </ul>
+    </div>
+    <!-- Comments-->
+    <div class="justify-content-center row p-0 ">
+        <div class="col-10 ">
+            <div class="commentSection rounded text-light p-2 m-5" >
+
+                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 >
+                    <div class="row align-items-center justify-content-center p-3"  ngTiltParallax [distance]=0>
+                        <div class="col-3 text-center">
+                            <h4 class="playfair">Username</h4>
+                        </div>
+                        <div class="col-9 border-start custom-border-color">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 >
+                    <div class="row align-items-center justify-content-center p-3"  ngTiltParallax [distance]=0>
+                        <div class="col-3 text-center">
+                            <h4 class="playfair">Username</h4>
+                        </div>
+                        <div class="col-9 border-start custom-border-color">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid col-5 mx-auto mb-3 button-section">
+                    <button class="btn btn-lg" type="button">Post a Comment</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

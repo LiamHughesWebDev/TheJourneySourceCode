@@ -1,3 +1,38 @@
+@font-face {
+    font-family: Playfair;
+    src: url(../../../assets/fonts/Playfair/PlayfairDisplay-VariableFont_wght.ttf);  
+}
+.playfair{
+    font-family: Playfair;
+}
 .container{
     margin-bottom: 20em;
+
+    .commentSection{
+        background-color: #0E0F1175;
+
+        .comment{
+            border-radius: 45px;
+        }
+        
+        
+    }
+    
+    .custom-border-color{
+        border-color: #495057!important;
+
+        
+    }
+   
+    .button-section{
+        position: relative;
+
+        button{
+            background-color: #4B5158;
+            color: white;
+        }
+        button:hover{
+            background-color: #6c747e;
+        }
+    }
 }
