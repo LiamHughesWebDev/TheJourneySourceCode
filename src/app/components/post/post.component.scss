@@ -26,6 +26,7 @@
    
     .button-section{
         position: relative;
+    
 
         button{
             background-color: #4B5158;
@@ -34,5 +35,9 @@
         button:hover{
             background-color: #6c747e;
         }
+    }
+
+    form{
+        position: relative;
     }
 }

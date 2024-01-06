@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ParticlesConfig } from '../assets/particles-config';
@@ -16,10 +16,21 @@ declare var particlesJS: any;
 export class AppComponent implements OnInit {
   title = 'TheJourneySourceCode';
 
+  @ViewChild('navigation') navigation!: ElementRef;
+
   constructor(){}
+
+
 
   ngOnInit() {
     //returns "particleJS is not defined", yet still functions properly
-    particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')});
+    particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')}); 
   }
+
+  @HostListener('document:Scroll', ['$event'])
+  public onViewportScroll(){
+    console.log("scrolled?");
+  }
+
+  
 }

@@ -20,20 +20,11 @@
     position: fixed;
   } 
 #navigation{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 0.5em;
-    position: relative;
-
     list-style: none;
     color: white;
     font-family: Playfair;
     font-size: 1.25em;
     
-    li{
-        padding: .5em;
-
         a{
             text-decoration: none;
             color: inherit;
@@ -41,7 +32,7 @@
         a:hover{
             text-decoration: underline;
         }
-    }
+
     
 }
 .hireMe{

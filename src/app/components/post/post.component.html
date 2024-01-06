@@ -12,35 +12,50 @@
         </div>
     </div>
     <!-- Comments-->
+
     <div class="justify-content-center row p-0 ">
         <div class="col-10 ">
             <div class="commentSection rounded text-light p-2 m-5" >
 
-                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 >
+                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 *ngFor="let comment of comments">
                     <div class="row align-items-center justify-content-center p-3"  ngTiltParallax [distance]=0>
                         <div class="col-3 text-center">
-                            <h4 class="playfair">Username</h4>
+                            <h4 class="playfair">{{comment.username}}</h4>
                         </div>
                         <div class="col-9 border-start custom-border-color">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p class="text-break">{{comment.comment}}</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 >
-                    <div class="row align-items-center justify-content-center p-3"  ngTiltParallax [distance]=0>
-                        <div class="col-3 text-center">
-                            <h4 class="playfair">Username</h4>
+
+                <form class="mx-4" [formGroup]="commentForm" (ngSubmit)="onSubmit()" *ngIf="showComment">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Username</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username" formControlName="username">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Put your comment here...</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment"></textarea>
+                      </div>
+
+                    <div class="row">
+                        <div class="d-grid col-2 mx-auto my-4">
+                            <button class="btn btn-lg btn-danger" type="button" (click)="onClickPostComment()">Close</button>
                         </div>
-                        <div class="col-9 border-start custom-border-color">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class="d-grid col-5 mx-auto my-4">
+                            <button class="btn btn-lg btn-primary" type="submit">Submit</button>
                         </div>
-                    </div>
-                </div>
+                    </div>  
+                    
+                    
+                </form>
                 
-                <div class="d-grid col-5 mx-auto mb-3 button-section">
-                    <button class="btn btn-lg" type="button">Post a Comment</button>
+                <div class="d-grid col-5 mx-auto my-4 button-section" *ngIf="!showComment">
+                    <button class="btn btn-lg" type="button" (click)="onClickPostComment()">Post a Comment</button>
                 </div>
+
+              
 
             </div>
         </div>
