@@ -25,12 +25,24 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //returns "particleJS is not defined", yet still functions properly
     particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')}); 
+  
+
+    var startPos = window.scrollY;
+    console.log(startPos);
+
+    window.onscroll = function() {
+      var currentScrollPos = window.scrollY;
+
+      if(currentScrollPos <= 200) {
+        document.getElementById("navigation")!.classList.remove("darkenNav");
+      } else {
+        document.getElementById("navigation")!.classList.add("darkenNav");
+      }
+      startPos = currentScrollPos;
+    }
   }
 
-  @HostListener('document:Scroll', ['$event'])
-  public onViewportScroll(){
-    console.log("scrolled?");
-  }
+
 
   
 }

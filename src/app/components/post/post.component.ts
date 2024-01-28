@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { PostService } from '../../post.service';
 import { ActivatedRoute } from '@angular/router';
@@ -34,13 +34,9 @@ export class PostComponent implements OnInit{
   constructor(private PostService: PostService, private route: ActivatedRoute, private formBuilder: FormBuilder, private changeDetection: ChangeDetectorRef){}
 
   ngOnInit(){
-
-
     this.post = this.PostService.getPost(this.postID);
-    
     this.comments = this.PostService.getComments(this.postID);
-    console.log(this.comments);
-   
+
     console.log(this.post, this.comments);
   }
 
@@ -62,4 +58,6 @@ export class PostComponent implements OnInit{
     this.comments.push(createdComment);
     this.changeDetection.detectChanges();
   }
+  
+
 }

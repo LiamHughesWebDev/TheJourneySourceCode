@@ -1,12 +1,12 @@
 <div class="container">
     <!-- Main Post-->
     <div class="justify-content-center row p-0">
-        <div class="col-10" ngTilt [maxTilt]=1 [scale]=1>
+        <div class="col-10" ngTilt [maxTilt]=0.75 [scale]=1>
             <div class="card bg-dark text-light p-2 mt-5" ngTiltParallax [distance]=0 style="min-height: 500px;">
                 <div class="card-body p-2">
-                    <h2 class="card-title text-center playfair border-bottom custom-border-color mx-5">{{post.title}}</h2>
-                    <h6 class="card-subtitle text-secondary text-center mb-3">{{post.filter}}</h6>
-                    <p class="card-text p-2 mb-5">{{post.content}}</p>
+                    <h2 class="card-title text-center playfair mx-5">{{post.title}}</h2>
+                    <h6 class="card-subtitle text-secondary text-center mb-3 border-bottom custom-border-color p-2">{{post.filter}}</h6>
+                    <div class="card-text p-2 mb-5" id="Content" [innerHTML]="post.content"></div>
                 </div>
             </div>
         </div>
@@ -15,31 +15,31 @@
 
     <div class="justify-content-center row p-0 ">
         <div class="col-10 ">
-            <div class="commentSection rounded text-light p-2 m-5" >
+            <div class="commentSection rounded text-light p-4 m-2 p-md-2 m-md-5 " >
 
-                <div class="comment bg-dark m-5 align-items-center" ngTilt [maxTilt]=3 [scale]=1 *ngFor="let comment of comments">
+                <div class="comment bg-dark m-md-5 m-3 align-items-center" ngTilt [maxTilt]=0.5 [scale]=1 *ngFor="let comment of comments">
                     <div class="row align-items-center justify-content-center p-3"  ngTiltParallax [distance]=0>
-                        <div class="col-3 text-center">
-                            <h4 class="playfair">{{comment.username}}</h4>
+                        <div class="col-12 col-lg-3 text-center CommentUsername text-break">
+                            <h4 class="playfair commentUsername">{{comment.username}}</h4>
                         </div>
-                        <div class="col-9 border-start custom-border-color">
+                        <div class="col-9 border-start commentText custom-border-color text-break">
                             <p class="text-break">{{comment.comment}}</p>
                         </div>
                     </div>
                 </div>
 
-
-                <form class="mx-4" [formGroup]="commentForm" (ngSubmit)="onSubmit()" *ngIf="showComment">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Username</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username" formControlName="username">
+                <!--Comment Form-->
+                <form class="m-4" [formGroup]="commentForm" (ngSubmit)="onSubmit()" *ngIf="showComment">
+                    <div class="mb-3 col-md-4">
+                        <label for="exampleFormControlInput1" class="form-label"><b>Username</b></label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Username" formControlName="username" maxlength="13">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Put your comment here...</label>
+                        <label for="exampleFormControlTextarea1" class="form-label"><b>Put your comment here...</b></label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="comment"></textarea>
                       </div>
 
-                    <div class="row">
+                    <div class="row d-none d-md-flex">
                         <div class="d-grid col-2 mx-auto my-4">
                             <button class="btn btn-lg btn-danger" type="button" (click)="onClickPostComment()">Close</button>
                         </div>
@@ -47,11 +47,20 @@
                             <button class="btn btn-lg btn-primary" type="submit">Submit</button>
                         </div>
                     </div>  
+                    <div class="row d-md-none d-flex justify-content-around">
+                   
+                            <button class="btn btn-danger m-3" type="button" (click)="onClickPostComment()">Close</button>
+                      
+                     
+                            <button class="btn btn-primary m-3" type="submit">Submit</button>
+                        
+                    </div>  
+               
                     
                     
                 </form>
                 
-                <div class="d-grid col-5 mx-auto my-4 button-section" *ngIf="!showComment">
+                <div class="d-grid col-md-4 mx-auto my-4 button-section" *ngIf="!showComment">
                     <button class="btn btn-lg" type="button" (click)="onClickPostComment()">Post a Comment</button>
                 </div>
 
