@@ -1,6 +1,6 @@
 export interface comment {
     username: string,
-    comment:string,
-    postID: number,
+    content:string,
+    parentPost: number,
     datePosted: Date
 }

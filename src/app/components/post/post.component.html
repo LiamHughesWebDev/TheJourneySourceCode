@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!IsLoading">
     <!-- Main Post-->
     <div class="justify-content-center row p-0">
         <div class="col-10" ngTilt [maxTilt]=0.75 [scale]=1>
@@ -23,7 +23,7 @@
                             <h4 class="playfair commentUsername">{{comment.username}}</h4>
                         </div>
                         <div class="col-9 border-start commentText custom-border-color text-break">
-                            <p class="text-break">{{comment.comment}}</p>
+                            <p class="text-break">{{comment.content}}</p>
                         </div>
                     </div>
                 </div>

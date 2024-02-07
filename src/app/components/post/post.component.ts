@@ -19,11 +19,12 @@ export class PostComponent implements OnInit{
 
   
 
-  //Definitions
+  //Declerations
   postID:any = this.route.snapshot.paramMap.get('id');
   post!:post;
   comments: comment[] = [];
   showComment:boolean = false;
+  IsLoading:boolean = true;
 
   commentForm = this.formBuilder.group({
     username: new FormControl<string>('', {nonNullable: true}),
@@ -34,10 +35,24 @@ export class PostComponent implements OnInit{
   constructor(private PostService: PostService, private route: ActivatedRoute, private formBuilder: FormBuilder, private changeDetection: ChangeDetectorRef){}
 
   ngOnInit(){
+    this.getPostandComments();
+    
+    if(!this.post){
+      setTimeout(()=>{this.getPostandComments()}, 300);
+      console.log("error");
+      
+    }
+
+    console.log(this.comments);
+  }
+
+  getPostandComments(){
     this.post = this.PostService.getPost(this.postID);
     this.comments = this.PostService.getComments(this.postID);
 
-    console.log(this.post, this.comments);
+    if(this.post){
+      this.IsLoading = false;
+    }
   }
 
   onClickPostComment(){
@@ -48,15 +63,13 @@ export class PostComponent implements OnInit{
 
     var createdComment:comment = {
       username: this.commentForm.value.username as string,
-      comment: this.commentForm.value.comment as string,
-      postID: Number(this.postID),
+      content: this.commentForm.value.comment as string,
+      parentPost: Number(this.postID),
       datePosted: new Date
     }
     console.log(createdComment);
       
     this.PostService.createComment(createdComment);
-    this.comments.push(createdComment);
-    this.changeDetection.detectChanges();
   }
   
 

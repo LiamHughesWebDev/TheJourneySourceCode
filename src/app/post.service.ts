@@ -1,82 +1,48 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Pipe } from '@angular/core';
 import { comment } from './Models/comment';
 import { post } from './Models/post';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor() { }
+  private API = 'https://thejourneyapi.azurewebsites.net/TheJourney/';
+  posts: post[] = [];
+  post!: post;
+  comments: comment[] = [];
 
-
-
-  public posts: post[] = [
-    {
-      id: 0,
-      title:"Post 0",
-      filter: "Gay",
-      summary: "Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here",
-      content: "<i>Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here</i>"
-    },
-    {
-      id: 1,
-      title:"Post 1",
-      filter: "none",
-      summary: "Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here",
-      content: "<i>Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here</i>"
-    },
-    {
-      id: 2,
-      title:"Post 2",
-      filter: "none",
-      summary: "Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here",
-      content: "<i>Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here</i>"
-    },
-    {
-      id: 3,
-      title:"Post 3",
-      filter: "none",
-      summary: "Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here",
-      content: "<i>Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here</i>"
-    },
-    {
-      id: 4,
-      title:"Post 4",
-      filter: "none",
-      summary: "Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here",
-      content: "<i>Card text that is taking up a fair bit of space so that I can see what it would kinda look like when I actually have something usefull here</i>"
-    }
-  ];
-
-  public comments: comment[] = [
-    {
-      username: "Username",
-      comment: "A comment",
-      postID: 4,
-      datePosted: new Date(2024,1,6,11,43,0,0)
-    },
-    {
-      username: "Username2",
-      comment: "Another fuckin comment",
-      postID: 2,
-      datePosted: new Date(2024,1,6,12,10,0,0)
-    }
-  ]
-
+  constructor(private http: HttpClient) {}
 
   getPosts(){
+    console.log("called");
+    this.http.get<post[]>(this.API + "allPosts").subscribe(val => this.posts = val);
+    console.log(this.posts)
     return this.posts;
   }
+
   getPost(id:number){
-    return this.posts[id]
+    console.log("called");
+    this.http.get<post>(this.API + "post/" + id).subscribe(val => this.post = val);
+    console.log(this.post);
+    return this.post;
   }
   getComments(id:number){
-    return this.comments.filter((comment) => comment.postID == id);
+    console.log("called");
+    this.http.get<comment[]>(this.API + "comment/" + id).subscribe(val => this.comments = val);
+    console.log(this.comments);
+    return this.comments;
   }
 
   createComment(comment:comment){
-    this.comments.push(comment);
-    console.log(this.comments);
+    console.log(comment);
+    this.http.post(this.API + "newComment", comment).subscribe(val => console.log(val));
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+    
+    
   }
 }
