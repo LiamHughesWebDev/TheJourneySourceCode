@@ -15,11 +15,61 @@ import {NgTiltModule} from '@geometricpanda/angular-tilt';
 export class HomeComponent implements OnInit{
   constructor(private PostService: PostService){}
 
-  posts!: Array<post>;
+  posts: Array<post> = [];
+  unfilteredPosts: Array<post> = [];
+  Categories: Array<string> = []; 
+  filtered: boolean = false;
  
   ngOnInit(){
+    this.getPosts();
+  }
+
+  getPosts(){
+    this.posts = [];
     this.posts = this.PostService.getPosts();
-    
+    this.getCategories();
+  }
+
+  getCategories(){
+    //waits for getPosts() then grabs each posts category
+    this.posts.forEach(post => {
+      //checks if category already exists on Categories array, and if not adds it
+      if(this.Categories.includes(post.category)){
+        console.log("already included")
+      }
+      else{
+        this.Categories.push(post.category);
+      }
+    });
+  }
+
+  filterCategories(category:string){
+    if(category == "Clear"){
+      console.log(this.filtered)
+      if(this.filtered === true){
+        this.posts = this.unfilteredPosts;
+        this.filtered = false;
+        console.log("cleared")
+      }else{
+        console.log("do nothing")
+      }
+        
+        
+    }else{
+      console.log("filtering " + category)
+      console.log(this.unfilteredPosts);
+      this.filtered = true;
+      
+    this.unfilteredPosts = this.posts.slice(0, this.posts.length);
+      let i = 0;
+        while (i < this.posts.length) {
+         if(this.posts[i].category !== category){
+          this.posts.splice(i, 1);
+         }
+         i++;
+        }
+    }
+
   }
 
 }

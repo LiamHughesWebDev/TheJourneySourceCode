@@ -14,6 +14,7 @@ export class PostService {
   posts: post[] = [];
   post!: post;
   comments: comment[] = [];
+  categories: [] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -37,6 +38,7 @@ export class PostService {
     console.log(this.comments);
     return this.comments;
   }
+
 
   createComment(comment:comment){
     console.log(comment);

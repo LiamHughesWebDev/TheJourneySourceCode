@@ -1,4 +1,18 @@
 <div class="container">
+    <div class="mx-auto justify-content-center d-flex">
+        <div class="dropdown-center">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filter Categories
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li *ngFor="let category of Categories"><a class="dropdown-item" href="#" (click)="filterCategories(category)">{{category}}</a></li>
+              <li><hr class="divider my-2"></li>
+              <li ><a class="dropdown-item" href="#" (click)="filterCategories('Clear')">Clear Filters</a></li>
+            </ul>
+          </div>
+    </div>
+
+
     <div class="row gx-5 gy-5 my-5 justify-content-center" > 
         <!--For Each Column-->
         <ul class="col-md-6 col-sm-10" *ngFor="let post of posts; index as i" ngTilt [maxTilt]=5 [scale]=1 >
