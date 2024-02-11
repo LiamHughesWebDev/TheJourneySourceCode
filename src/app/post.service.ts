@@ -10,6 +10,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class PostService {
 
   private API = 'https://thejourneyapi.azurewebsites.net/TheJourney/';
+  
   posts: post[] = [];
   post!: post;
   comments: comment[] = [];
@@ -31,6 +32,7 @@ export class PostService {
   }
   getComments(id:number){
     console.log("called");
+    //grabs comments for specified post. Subscribes to value & provides it to the comments array
     this.http.get<comment[]>(this.API + "comment/" + id).subscribe(val => this.comments = val);
     console.log(this.comments);
     return this.comments;

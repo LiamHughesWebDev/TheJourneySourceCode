@@ -1,7 +1,7 @@
 export interface post {
     id: number,
     title:string,
-    filter: string,
+    category: string,
     summary: string,
     content: string
 }
