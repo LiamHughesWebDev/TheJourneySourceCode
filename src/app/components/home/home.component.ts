@@ -44,9 +44,12 @@ export class HomeComponent implements OnInit{
   }
 
   filterCategories(category:string){
+
     if(category == "Clear"){
       console.log(this.filtered)
+      //if user has not filtered yet, not need to clear code
       if(this.filtered === true){
+        this.getPosts();
         this.posts = this.unfilteredPosts;
         this.filtered = false;
         console.log("cleared")
@@ -58,7 +61,10 @@ export class HomeComponent implements OnInit{
     }else{
       console.log("filtering " + category)
       console.log(this.unfilteredPosts);
-      this.filtered = true;
+      
+      if(this.filtered === true){
+        this.posts = this.unfilteredPosts;
+      }
       
     this.unfilteredPosts = this.posts.slice(0, this.posts.length);
       let i = 0;
@@ -67,6 +73,7 @@ export class HomeComponent implements OnInit{
           this.posts.splice(i, 1);
          }
          i++;
+         this.filtered = true;
         }
     }
 
