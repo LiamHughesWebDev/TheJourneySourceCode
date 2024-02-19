@@ -23,10 +23,15 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    //returns "particleJS is not defined", yet still functions properly
-   particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')}); 
+    //loads background particles using ../assests/ParticlesConfig.ts
+    //returns "particleJS is not defined" error in console, yet still functions properly. Weird.
+    //setTimeout does not fix this either, used 300ms & 3000ms
+  
+    particlesJS('particles-js', ParticlesConfig, function() {console.log('ParticlesJS config loaded')}); 
+
  
 
+   // checks if user has scrolled 200 pixels down, and if so adds a CSS class to the navigation element
     var startPos = window.scrollY;
     console.log(startPos);
 
