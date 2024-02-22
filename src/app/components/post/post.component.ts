@@ -51,13 +51,15 @@ export class PostComponent implements OnInit{
 
   getPostandComments(){
     //grabs both post & comments from post.service
-    this.post = this.PostService.getPost(this.postID);
-    this.comments = this.PostService.getComments(this.postID);
-
-    //if the post variable is filled, allows the container to display (using *NgIf)
-    if(this.post){
+    this.PostService.getPost(this.postID).subscribe(val => {
+      this.post = val; 
       this.IsLoading = false;
-    }
+    });
+
+    this.PostService.getComments(this.postID).subscribe(val => {
+      this.comments = val;
+    })
+ 
   }
 
   onClickPostComment(){

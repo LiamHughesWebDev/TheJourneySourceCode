@@ -12,8 +12,6 @@ export class PostService {
   private API = 'https://thejourneyapi.azurewebsites.net/TheJourney/';
   
   posts: post[] = [];
-  post!: post;
-  comments: comment[] = [];
   categories: [] = [];
 
   constructor(private http: HttpClient) {}
@@ -26,17 +24,13 @@ export class PostService {
   }
 
   getPost(id:number){
-    console.log("called");
-    this.http.get<post>(this.API + "post/" + id).subscribe(val => this.post = val);
-    console.log(this.post);
-    return this.post;
+    console.log("GetPost called");
+    return  this.http.get<post>(this.API + "post/" + id);
   }
   getComments(id:number){
-    console.log("called");
+    console.log("getComments called");
     //grabs comments for specified post. Subscribes to value & provides it to the comments array
-    this.http.get<comment[]>(this.API + "comment/" + id).subscribe(val => this.comments = val);
-    console.log(this.comments);
-    return this.comments;
+    return this.http.get<comment[]>(this.API + "comment/" + id);
   }
 
 
