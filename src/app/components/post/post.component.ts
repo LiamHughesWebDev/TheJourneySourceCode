@@ -40,11 +40,11 @@ export class PostComponent implements OnInit{
     
     // checks if grabbing post failed, and if so trys again
       setTimeout(()=>{
-        if(!this.post){
+        if(!this.IsLoading == false){
           this.getPostandComments()
           console.log("refreshing");
         }
-      }, 500);
+      }, 300);
 
     console.log(this.comments);
   }
@@ -53,7 +53,9 @@ export class PostComponent implements OnInit{
     //grabs both post & comments from post.service
     this.PostService.getPost(this.postID).subscribe(val => {
       this.post = val; 
-      this.IsLoading = false;
+      if(val.id){
+        this.IsLoading = false;
+      }
     });
 
     this.PostService.getComments(this.postID).subscribe(val => {
