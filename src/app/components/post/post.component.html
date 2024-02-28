@@ -1,6 +1,10 @@
-<div class="container" *ngIf="!IsLoading">
+<div class="container">
     <!-- Main Post-->
-    <div class="justify-content-center row p-0">
+    <div class="row justify-content-center" *ngIf="IsLoading">
+        <div class="lds-ring "><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    <div class="justify-content-center row p-0" >
         <div class="col-10" ngTilt [maxTilt]=0.75 [scale]=1>
             <div class="card bg-dark text-light p-2 mt-5" ngTiltParallax [distance]=0 style="min-height: 500px;">
                 <div class="card-body p-2">
