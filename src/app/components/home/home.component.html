@@ -17,7 +17,7 @@
         <!--For Each Column-->
         <ul class="col-md-6 col-sm-10" *ngFor="let post of posts; index as i" ngTilt [maxTilt]=5 [scale]=1 >
             <li>
-                <a [routerLink]="'post/' + post.id"> <!-- anchor element + angular Tilt =  text unselectable by user-->
+                <a [routerLink]="'post/' + post.id"> <!-- combining the anchor element & angular Tilt made text unselectable by user-->
                 <!--Card-->
                 <div class="card bg-dark text-light p-2"  ngTiltParallax [distance]=0 >
                     <div class="card-body text-break overflow-hidden" style="height: 300px; max-height: 300px; text-overflow: ellipsis;">
